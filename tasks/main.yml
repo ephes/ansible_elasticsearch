@@ -1,0 +1,4 @@
+---
+# tasks file for roles/elasticsearch
+
+- include: elasticsearch.yml tags=elasticsearch
