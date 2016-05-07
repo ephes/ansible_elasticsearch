@@ -1,19 +1,10 @@
 ---
-# file: roles/rabbitmq/tasks/elasticsearch.yml
-
-- name: add elasticsearch repository key
-  sudo: yes
-  apt_key: url=https://packages.elasticsearch.org/GPG-KEY-elasticsearch state=present
-
-- name: add elasticsearch repository to sources list
-  sudo: yes
-  apt_repository: repo='deb https://packages.elasticsearch.org/elasticsearch/1.5/debian stable main' state=present
+# file: roles/elasticsearch/tasks/elasticsearch.yml
 
 - name: install latest latest elasticsearch and openjdk jre packages
   sudo: yes
   apt: pkg={{item}} state=latest
   with_items:
-    - openjdk-7-jre-headless
     - elasticsearch
 
 - name: make sure elasticsearch is running
